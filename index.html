@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maham ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle, #000011, #0a0a23);
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stars { position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+.star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle linear infinite; }
+@keyframes twinkle { 0% {opacity: 0;} 50% {opacity: 1;} 100% {opacity: 0;} }
+.container { position: relative; z-index: 1; width: 95%; max-width: 420px; background: rgba(255,255,255,0.05); border-radius: 25px; padding: 30px; text-align: center; box-shadow: 0 0 50px rgba(255,0,100,0.3); backdrop-filter: blur(6px);}
+.heart { font-size: 70px; color: #ff4d8d; margin-bottom: 15px; animation: beat 1.3s infinite; }
+@keyframes beat {0% { transform: scale(1); }50% { transform: scale(1.35); }100% { transform: scale(1); } }
+h1 { font-size: 26px; margin-bottom: 10px; } p { font-size: 17px; line-height: 1.6; }
+button, input { width: 100%; padding: 13px; margin-top: 18px; border-radius: 30px; border: none; font-size: 16px;}
+button { background: linear-gradient(135deg, #ff2f6d, #ff5fa2); color: white; cursor: pointer;}
+.hidden { display: none; } .signature { margin-top: 25px; font-style: italic; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container" id="lock">
+    <h1>🔒 Only for Maham</h1>
+    <p>This message holds my heart 💖</p>
+    <input type="password" id="pass" placeholder="Enter password">
+    <button onclick="unlock()">Unlock ❤️</button>
+</div>
+
+<div class="container hidden" id="content">
+    <audio id="music" autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="heart">❤️</div>
+
+    <p>
+    Ham sy apki naraz gi bardasht nhi ho rhi hai ab tho please maaf kardo ab next aisi galti nhi hogii promiss.<br>
+    Ladki ham apsy bohat zadaaa piyar karty hain apki narazgii bardasht nhi kar saky gy.. Itni Bari Saza Mat dain plzzz
+    </p>
+
+    <div class="signature">— From: Mahad</div>
+</div>
+
+<script>
+function unlock(){
+    var pass = document.getElementById("pass").value;
+    if(pass === "MeriJanMaham"){
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        document.getElementById("music").play().catch(()=>{});
+    } else {
+        alert("Wrong password 😔");
+    }
+}
+
+// Stars animation
+const starsContainer = document.getElementById("stars");
+for(let i=0; i<100; i++){
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.top = Math.random()*100 + "%";
+    star.style.left = Math.random()*100 + "%";
+    star.style.animationDuration = 1 + Math.random()*3 + "s";
+    star.style.width = 1 + Math.random()*3 + "px";
+    star.style.height = star.style.width;
+    starsContainer.appendChild(star);
+}
+</script>
+
+</body>
+</html>
